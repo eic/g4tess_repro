@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+project(g4tess_inside_repro CXX)
+find_package(Geant4 REQUIRED)
+add_executable(repro repro.cc)
+target_link_libraries(repro ${Geant4_LIBRARIES})
+target_include_directories(repro PRIVATE ${Geant4_INCLUDE_DIRS})
+target_compile_definitions(repro PRIVATE ${Geant4_DEFINITIONS})
+set_target_properties(repro PROPERTIES CXX_STANDARD 17)
